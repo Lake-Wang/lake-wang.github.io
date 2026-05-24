@@ -1,62 +1,100 @@
 ---
-import Icon from './Icon.astro';
+const skillCategories = [
+	{
+		label: 'Programming',
+		skills: ['Python', 'SQL'],
+	},
+	{
+		label: 'ML / AI',
+		skills: ['PyTorch', 'scikit-learn', 'XGBoost', 'Transformers', 'ONNX'],
+	},
+	{
+		label: 'MLOps',
+		skills: ['MLflow', 'FastAPI', 'Prometheus'],
+	},
+	{
+		label: 'Data Engineering',
+		skills: ['Spark', 'pandas'],
+	},
+	{
+		label: 'Statistics',
+		skills: ['Time Series', 'Hypothesis Testing', 'Regression', 'Reinforcement Learning'],
+	},
+	{
+		label: 'Viz',
+		skills: ['Tableau', 'matplotlib'],
+	},
+	{
+		label: 'Spoken',
+		skills: ['Mandarin · Native', 'English · Native'],
+	},
+];
 ---
 
-<section class="box skills">
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Clinical NLP & AI</h2>
-		<p>Building production ML for healthcare — domain-adaptive transformers, ICD/CPT coding automation, and models processing 100K+ claims weekly.</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Full-Stack ML Engineering</h2>
-		<p>End-to-end ownership from data infrastructure to deployment — architectural redesign, continuous monitoring, and production delivery across distributed systems.</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Time Series & Forecasting</h2>
-		<p>Hierarchical forecasting frameworks built on Spark/SQL, reducing forecast error from 27% to 13% and adopted into Finance and Ad Sales planning at NBCUniversal.</p>
-	</div>
+<section class="skills-table">
+	{skillCategories.map((category) => (
+		<div class="skill-row">
+			<span class="category-label">{category.label}</span>
+			<div class="skill-pills">
+				{category.skills.map((skill) => (
+					<span class="skill-pill">{skill}</span>
+				))}
+			</div>
+		</div>
+	))}
 </section>
 
 <style>
-	.box {
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
-		padding: 1.5rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
-	}
-
-	.skills {
+	.skills-table {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		border-top: 1px dashed var(--gray-700);
+		width: 100%;
 	}
 
-	.skills h2 {
-		font-size: var(--text-lg);
+	.skill-row {
+		display: flex;
+		align-items: flex-start;
+		gap: 2rem;
+		padding: 1rem 0;
+		border-bottom: 1px dashed var(--gray-700);
 	}
 
-	.skills p {
+	.category-label {
+		font-size: var(--text-xs);
+		font-family: var(--font-brand);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
 		color: var(--gray-400);
+		min-width: 9rem;
+		flex-shrink: 0;
+		padding-top: 0.3rem;
 	}
 
-	@media (min-width: 50em) {
-		.box {
-			border-radius: 1.5rem;
-			padding: 2.5rem;
+	.skill-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.skill-pill {
+		font-size: var(--text-sm);
+		font-family: var(--font-brand);
+		border: 1px solid var(--gray-700);
+		border-radius: 0.375rem;
+		padding: 0.2rem 0.7rem;
+		color: var(--gray-200);
+		background: transparent;
+	}
+
+	@media (max-width: 50em) {
+		.skill-row {
+			flex-direction: column;
+			gap: 0.6rem;
 		}
 
-		.skills {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
-		}
-
-		.skills h2 {
-			font-size: var(--text-2xl);
+		.category-label {
+			min-width: unset;
 		}
 	}
 </style>
