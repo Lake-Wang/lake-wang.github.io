@@ -27,19 +27,19 @@ const projects = (await getCollection('work'))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
+					title="Hello, my name is Yuxuan Wang"
+					tagline="I am a Data Scientist specializing in clinical NLP and production ML — currently based in Phoenix, Arizona."
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="terminal-window" size="1.33em" /> Data Scientist</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> ML Engineer</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" /> Researcher</Pill>
 					</div>
 				</Hero>
 
 				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Yuxuan Wang"
 					width="480"
 					height="620"
 					src="/assets/portrait.jpg"
@@ -53,7 +53,7 @@ const projects = (await getCollection('work'))
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<p>A selection of recent projects in clinical AI, production ML, and data engineering.</p>
 				</header>
 
 				<div class="gallery">
@@ -78,17 +78,16 @@ const projects = (await getCollection('work'))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
+					<h3>Where I've Worked</h3>
 					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
+						Organizations and institutions that have shaped my experience across industry and academia.
 					</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="small">
 						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
+							['XpertDox', 'NBCUniversal', 'Urban Science', 'Haitong Securities', 'New York University'].map((brand) => (
 								<li class="mention-card">
 									<p>{brand}</p>
 								</li>

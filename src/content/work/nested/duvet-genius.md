@@ -1,22 +1,36 @@
 ---
-title: Duvet Genius
-publishDate: 2020-03-04 00:00:00
+title: OOD-Enhanced Self-Supervised Visual Learning
+publishDate: 2024-09-01 00:00:00
 img: /assets/stock-3.jpg
-img_alt: Pearls of silky soft white cotton, bubble up under vibrant lighting
+img_alt: Abstract visualization of a neural network distinguishing rare objects in a dataset
 description: |
-  We developed a virtual showcase for the softest bedding imaginable.
+  Novel OOD detection pipeline integrated into DINO self-supervised pretraining — achieving a 47% increase in rare object identification on autonomous driving datasets.
 tags:
-  - Design
-  - Dev
-  - Branding
+  - Computer Vision
+  - Deep Learning
+  - Self-Supervised Learning
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
+## Overview
 
-Integer vitae nibh elit. Suspendisse eget urna eu neque bibendum pharetra. Sed interdum lectus sem, in pulvinar magna dignissim vel. Quisque maximus at urna nec laoreet. Suspendisse potenti. Vestibulum rhoncus sem ut mi pellentesque, in vestibulum erat blandit. Aliquam sodales dui ac maximus consectetur. Duis quis est vehicula, imperdiet nisl nec, fermentum erat. Duis tortor diam, pharetra eu euismod in, vehicula non eros. Curabitur facilisis dui at erat ultrices gravida. In at nunc ultricies, pulvinar mi vel, sagittis mauris. Praesent pharetra posuere purus ac imperdiet. Nulla facilisi.
+Self-supervised learning methods like DINO learn powerful visual representations — but they tend to underfit rare classes, because the training signal is dominated by frequent objects. In safety-critical domains like autonomous driving, this is a real problem: the rare cases are often the most important ones.
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
+This project developed a novel pipeline that integrates out-of-distribution (OOD) detection directly into the SSL pretraining loop, prioritizing rare samples to improve balanced representation learning.
 
-Mauris sed eros in ex maximus volutpat. Suspendisse potenti. Donec lacinia justo consectetur sagittis tempor. Proin ullamcorper nisi vitae auctor rhoncus. Sed tristique aliquam augue. Pellentesque vitae fringilla ligula. Nulla arcu elit, efficitur eu nunc malesuada, eleifend tincidunt orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer mattis orci in bibendum ultricies. Quisque a dui erat. Phasellus et vulputate ipsum. Proin metus ex, lobortis nec ornare eget, bibendum ut sapien. Aliquam in dolor lobortis, aliquam tellus a, congue augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+## Method
 
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
+**OOD detection with dynamic memory buffer:** We built an OOD detector that maintains a running buffer of training embeddings. Samples whose representations are far from the buffer's distribution — likely rare or underrepresented objects — are flagged and upweighted during pretraining.
+
+**Integration with DINO:** The OOD signal is used to modulate the self-supervised loss, giving the model stronger training signal on rare and difficult samples without requiring any labels.
+
+**Dataset:** Evaluated on BDD100K, a large-scale autonomous driving dataset with a long-tailed object distribution — pedestrians, cyclists, and unusual vehicle types are significantly underrepresented relative to cars.
+
+## Results
+
+- **47% increase in true positive rate** (from a base of 22%) for rare object identification
+- Improved feature representations for safety-critical classes in autonomous driving scenarios
+- The dynamic memory buffer approach generalizes beyond DINO and could be applied to other SSL methods
+
+## Context
+
+This was a NYU capstone project, but the problem it addresses is real: SSL pretraining at scale doesn't automatically produce fair representations, and in deployment contexts where rare-class performance matters most, that gap has consequences.
