@@ -1,15 +1,16 @@
 ---
 title: NBA Game Attendance Prediction — MLOps Pipeline
 publishDate: 2025-04-01 00:00:00
-img: /assets/stock-1.jpg
-img_alt: Dashboard showing model performance metrics and data drift monitoring
+img: /assets/nba-mlops-diagram.png
+img_alt: System architecture diagram showing data pipeline, model training, and serving infrastructure on Chameleon Cloud
 description: |
-  Two-stage PyTorch pipeline predicting NBA game attendance from game intensity and weather signals — with FastAPI serving, ONNX optimization, MLflow experiment tracking, and Alibi drift detection.
+  Two-stage PyTorch pipeline predicting NBA game attendance from game intensity and weather signals — with Airflow orchestration, MLflow tracking, and FastAPI/Triton serving on Chameleon Cloud.
 tags:
   - MLOps
   - PyTorch
   - FastAPI
   - MLflow
+type: project
 ---
 
 ## Motivation
@@ -22,20 +23,22 @@ The core modeling approach is a chained two-stage architecture:
 
 **Stage 1 — Game intensity modeling:** A PyTorch MLP predicts point differential from rolling 5-game team statistics. Point differential serves as a proxy for expected game excitement — a close, high-stakes matchup drives different attendance patterns than a blowout.
 
-**Stage 2 — Attendance prediction:** A second PyTorch MLP takes the predicted score margin alongside weather data (temperature, wind, precipitation) to forecast game attendance. Both models are exported to ONNX with graph and quantization optimizations for efficient inference.
+**Stage 2 — Attendance prediction:** A second PyTorch MLP takes the predicted score margin alongside weather data (temperature, wind, precipitation) to forecast game attendance. Both models are optimized with ONNX graph and quantization passes for efficient inference.
 
-## Data Pipeline
+## Infrastructure
 
-Three seasons of data (2022–25) are pulled from the NBA API for box scores and attendance, and from WeatherAPI/Open-Meteo for game-day conditions. Rolling averages are computed season-wise with strict splits to prevent leakage, and weather is joined by game date and arena location.
+![NBA MLOps System Architecture](/assets/nba-mlops-diagram.png)
 
-## Serving and Monitoring
+The system runs across three nodes on Chameleon Cloud (KVM@TACC), connected via a shared network:
 
-A FastAPI endpoint accepts a game date, home team, and away team — then runs both model stages in sequence to return a predicted attendance figure. The system supports both `.pth` and ONNX backends with staging and fallback logic.
+- **Data pipeline:** Airflow orchestrates ingestion from the NBA API and weather sources into Postgres, with artifacts stored in a persistent object store
+- **Training:** A two-GPU server runs distributed PyTorch training with MLflow and MinIO for experiment tracking and artifact management
+- **Serving:** A separate GPU server hosts Flask + FastAPI/Triton endpoints, supporting both `.pth` and ONNX backends with staging and fallback logic
 
-Online evaluation is handled with Alibi Detect, which monitors incoming feature distributions against training baselines and surfaces drift alerts. MLflow tracks offline experiments — parameters, metrics, and model artifacts — across training runs.
+## Online Evaluation
 
-## Infrastructure and Role
+Rather than static holdout metrics alone, the system uses Alibi Detect to monitor incoming feature distributions against training baselines and surface drift alerts in real time. Synthetic data generated with Gaussian noise and date shifts was used to validate the detection pipeline.
 
-Training ran on A100 GPUs via Chameleon Cloud (KVM@TACC) with distributed data parallel across two VMs. My focus within the three-person team was model serving and monitoring — the FastAPI backend, ONNX export, and Alibi integration.
+## Team and Role
 
-The NBA is an accessible domain. The point of the project is the infrastructure: what it takes to move beyond a notebook and into a system that can be served, monitored, and trusted.
+Three-person project (NYU MS capstone). My focus was model serving and monitoring — the FastAPI/Triton backend, ONNX export pipeline, and Alibi integration. The NBA domain is intentionally approachable; the point is the infrastructure: what it takes to move a model from a notebook into a system that can be served, monitored, and maintained.

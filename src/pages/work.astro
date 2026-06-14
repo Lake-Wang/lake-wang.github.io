@@ -6,32 +6,74 @@ import Hero from '../components/Hero.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const projects = (await getCollection('work')).sort(
+const allEntries = (await getCollection('work')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
+
+const experience = allEntries.filter((e) => e.data.type === 'experience');
+const projects = allEntries.filter((e) => e.data.type === 'project');
 ---
 
 <BaseLayout
-	title="My Work | Jeanine White"
-	description="Learn about Jeanine White's most recent projects"
+	title="Work | Yuxuan Wang"
+	description="Yuxuan Wang's work experience and projects in ML, clinical AI, and data engineering"
 >
 	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
+		<main class="wrapper stack gap-16">
 			<Hero
-				title="My Work"
-				tagline="See my most recent projects below to get an idea of my past experience."
+				title="Work"
+				tagline="Selected experience and projects across production ML, clinical AI, and data engineering."
 				align="start"
 			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
+
+			<section class="work-section">
+				<h2 class="section-label">Experience</h2>
+				<Grid variant="offset">
+					{
+						experience.map((project) => (
+							<li>
+								<PortfolioPreview project={project} />
+							</li>
+						))
+					}
+				</Grid>
+			</section>
+
+			<section class="work-section">
+				<h2 class="section-label">Projects</h2>
+				<Grid variant="offset">
+					{
+						projects.map((project) => (
+							<li>
+								<PortfolioPreview project={project} />
+							</li>
+						))
+					}
+				</Grid>
+			</section>
 		</main>
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	.work-section {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.section-label {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+		font-family: var(--font-brand);
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid var(--gray-800);
+	}
+
+	@media (min-width: 50em) {
+		.section-label {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>

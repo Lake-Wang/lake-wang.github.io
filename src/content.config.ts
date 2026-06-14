@@ -13,6 +13,7 @@ export const collections = {
 			tags: z.array(z.string()),
 			img: z.string(),
 			img_alt: z.string().optional(),
+			type: z.enum(['experience', 'project']).default('project'),
 		}),
 	}),
 };
