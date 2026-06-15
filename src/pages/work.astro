@@ -18,7 +18,7 @@ const additionalRoles = [
 		company: 'New York University',
 		role: 'Adjunct Instructor',
 		dates: 'Sep – Dec 2025',
-		desc: 'Mentored MS capstone teams on problem framing, modeling strategy, and experimental design across multiple applied projects. Coordinated progress reviews with faculty and held weekly office hours to guide delivery.',
+		desc: 'Mentored MS capstone teams on problem framing, modeling strategy, and experimental design. Coordinated faculty reviews and held weekly office hours to guide delivery across multiple applied projects.',
 	},
 	{
 		company: 'Urban Science',
@@ -30,7 +30,25 @@ const additionalRoles = [
 		company: 'Haitong Securities',
 		role: 'Quantitative Strategy Intern',
 		dates: 'Aug – Dec 2022',
-		desc: 'Developed a deep reinforcement learning trading strategy using a SAC ensemble with sliding-window validation to handle regime shifts. Achieved a 29% Sharpe ratio improvement over baseline through reduced volatility and improved position sizing.',
+		desc: 'Developed a deep RL trading strategy using a SAC ensemble with sliding-window validation for regime shifts. Achieved a 29% Sharpe ratio improvement over baseline through reduced volatility and better position sizing.',
+	},
+	{
+		company: 'Fosun',
+		role: 'AI & Data Science Intern',
+		dates: 'May 2021 – Jun 2022',
+		desc: 'Built ML models for non-invasive glucose prediction, tackling cross-user variability and cold-start challenges via feature engineering, clustering, and model optimization. Reduced cold-start error by 23% and achieved RMSE of 0.6 (non-diabetic) / 1.4 (diabetic), enabling shorter calibration cycles.',
+	},
+	{
+		company: 'Guosheng Securities',
+		role: 'Research Institute Intern',
+		dates: 'Jun – Sep 2020',
+		desc: 'Produced daily reports and 20-page weekly industry research covering stock data, market policy, and regional transaction trends — report views grew 21% over the internship. Analyzed company financials and contributed to the KE Holdings IPO report.',
+	},
+	{
+		company: 'PwC',
+		role: 'Financial Audit Intern',
+		dates: 'Jan – Feb 2020',
+		desc: 'Managed and tracked 70+ bank confirmation forms with a 100% first-attempt validation rate. Supported capital flow evidence gathering and completed a week-long audit training program.',
 	},
 ];
 ---
@@ -72,9 +90,6 @@ const additionalRoles = [
 							<p class="extra-desc">{role.desc}</p>
 						</div>
 					))}
-					<p class="linkedin-note">
-						Full work history on <a href="https://www.linkedin.com/in/yuxuan-wang-684a19212/" target="_blank" rel="noopener">LinkedIn →</a>
-					</p>
 				</div>
 			</section>
 
