@@ -12,6 +12,27 @@ const allEntries = (await getCollection('work')).sort(
 
 const experience = allEntries.filter((e) => e.data.type === 'experience');
 const projects = allEntries.filter((e) => e.data.type === 'project');
+
+const additionalRoles = [
+	{
+		company: 'New York University',
+		role: 'Adjunct Instructor',
+		dates: 'Sep – Dec 2025',
+		desc: 'Mentored MS capstone teams on problem framing, modeling strategy, and experimental design across multiple applied projects. Coordinated progress reviews with faculty and held weekly office hours to guide delivery.',
+	},
+	{
+		company: 'Urban Science',
+		role: 'Data Analytics Intern',
+		dates: 'May – Aug 2023',
+		desc: 'Delivered applied ML solutions for automotive consulting clients across customer retention and after-sales analytics. Built classification models to surface churn risk and enable targeted intervention.',
+	},
+	{
+		company: 'Haitong Securities',
+		role: 'Quantitative Strategy Intern',
+		dates: 'Aug – Dec 2022',
+		desc: 'Developed a deep reinforcement learning trading strategy using a SAC ensemble with sliding-window validation to handle regime shifts. Achieved a 29% Sharpe ratio improvement over baseline through reduced volatility and improved position sizing.',
+	},
+];
 ---
 
 <BaseLayout
@@ -19,7 +40,7 @@ const projects = allEntries.filter((e) => e.data.type === 'project');
 	description="Yuxuan Wang's work experience and projects in ML, clinical AI, and data engineering"
 >
 	<div class="stack gap-20">
-		<main class="wrapper stack gap-16">
+		<main class="wrapper stack gap-20">
 			<Hero
 				title="Work"
 				tagline="Selected experience and projects across production ML, clinical AI, and data engineering."
@@ -27,8 +48,8 @@ const projects = allEntries.filter((e) => e.data.type === 'project');
 			/>
 
 			<section class="work-section">
-				<h2 class="section-label">Experience</h2>
-				<Grid variant="offset">
+				<h2 class="section-label">Work Experience</h2>
+				<Grid>
 					{
 						experience.map((project) => (
 							<li>
@@ -37,11 +58,29 @@ const projects = allEntries.filter((e) => e.data.type === 'project');
 						))
 					}
 				</Grid>
+
+				<div class="additional-exp">
+					{additionalRoles.map((role) => (
+						<div class="extra-entry">
+							<div class="extra-header">
+								<div class="extra-title">
+									<span class="extra-company">{role.company}</span>
+									<span class="extra-role">{role.role}</span>
+								</div>
+								<span class="extra-dates">{role.dates}</span>
+							</div>
+							<p class="extra-desc">{role.desc}</p>
+						</div>
+					))}
+					<p class="linkedin-note">
+						Full work history on <a href="https://www.linkedin.com/in/yuxuan-wang-684a19212/" target="_blank" rel="noopener">LinkedIn →</a>
+					</p>
+				</div>
 			</section>
 
 			<section class="work-section">
-				<h2 class="section-label">Projects</h2>
-				<Grid variant="offset">
+				<h2 class="section-label">Academic Projects</h2>
+				<Grid>
 					{
 						projects.map((project) => (
 							<li>
@@ -71,9 +110,90 @@ const projects = allEntries.filter((e) => e.data.type === 'project');
 		border-bottom: 1px solid var(--gray-800);
 	}
 
+	.additional-exp {
+		display: flex;
+		flex-direction: column;
+		border-top: 1px dashed var(--gray-700);
+		margin-top: 0.5rem;
+	}
+
+	.extra-entry {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		padding: 1.1rem 0;
+		border-bottom: 1px dashed var(--gray-700);
+	}
+
+	.extra-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.extra-title {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	.extra-company {
+		font-size: var(--text-md);
+		font-weight: 600;
+		color: var(--gray-0);
+	}
+
+	.extra-role {
+		font-size: var(--text-sm);
+		color: var(--gray-300);
+	}
+
+	.extra-dates {
+		font-size: var(--text-sm);
+		font-family: var(--font-brand);
+		color: var(--gray-400);
+		flex-shrink: 0;
+	}
+
+	.extra-desc {
+		font-size: var(--text-sm);
+		color: var(--gray-300);
+		line-height: 1.6;
+		max-width: 65ch;
+	}
+
+	.linkedin-note {
+		padding-top: 1rem;
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+
+	.linkedin-note a {
+		color: var(--accent-regular);
+		text-decoration: none;
+		transition: color var(--theme-transition);
+	}
+
+	.linkedin-note a:hover {
+		color: var(--accent-text-over);
+	}
+
 	@media (min-width: 50em) {
 		.section-label {
 			font-size: var(--text-2xl);
+		}
+
+		.extra-company {
+			font-size: var(--text-lg);
+		}
+
+		.extra-role,
+		.extra-desc,
+		.extra-dates {
+			font-size: var(--text-md);
 		}
 	}
 </style>

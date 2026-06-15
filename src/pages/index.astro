@@ -48,6 +48,33 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 
 			<Skills />
 
+			<section class="earlier-exp">
+				<h2 class="edu-heading">Earlier Experience</h2>
+				<div class="edu-entries">
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">New York University</span>
+							<span class="edu-dates">2025</span>
+						</div>
+						<p class="edu-degree">Adjunct Instructor</p>
+					</div>
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">Urban Science</span>
+							<span class="edu-dates">2023</span>
+						</div>
+						<p class="edu-degree">Data Analytics Intern</p>
+					</div>
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">Haitong Securities</span>
+							<span class="edu-dates">2022</span>
+						</div>
+						<p class="edu-degree">Quantitative Strategy Intern</p>
+					</div>
+				</div>
+			</section>
+
 			<section class="education">
 				<h2 class="edu-heading">Education</h2>
 				<div class="edu-entries">
@@ -72,27 +99,16 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>A selection of recent projects in clinical AI, production ML, and data engineering.</p>
+					<h3>Featured Work</h3>
+					<p>Current and most recent roles — where the bulk of my production ML experience lives.</p>
 				</header>
 
 				<div class="gallery">
-					<div class="home-work-group">
-						<h4 class="home-work-label">Work Experience</h4>
-						<Grid>
-							{experience.map((project) => (
-								<li><PortfolioPreview project={project} /></li>
-							))}
-						</Grid>
-					</div>
-					<div class="home-work-group">
-						<h4 class="home-work-label">Academic Projects</h4>
-						<Grid>
-							{projects.map((project) => (
-								<li><PortfolioPreview project={project} /></li>
-							))}
-						</Grid>
-					</div>
+					<Grid>
+						{experience.map((project) => (
+							<li><PortfolioPreview project={project} /></li>
+						))}
+					</Grid>
 				</div>
 
 				<div class="cta">
@@ -103,26 +119,6 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 				</div>
 			</section>
 
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Where I've Worked</h3>
-					<p>
-						Organizations and institutions that have shaped my experience across industry and academia.
-					</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							['XpertDox', 'NBCUniversal', 'Urban Science', 'Haitong Securities', 'New York University'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-			</section>
 		</main>
 
 		<ContactCTA />
