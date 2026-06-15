@@ -1,8 +1,8 @@
 ---
 title: OOD-Enhanced Self-Supervised Visual Learning
 publishDate: 2024-09-01 00:00:00
-img: /assets/ood-poster.png
-img_alt: Research poster for OOD-enhanced SSL pretraining showing pipeline, results, and embedding visualizations
+img: /assets/ood-thumbnail.jpg
+img_alt: Autonomous driving scene with object detection bounding boxes highlighting pedestrians and cars
 description: |
   Novel framework integrating OOD detection into DINO self-supervised pretraining via a dynamic memory buffer — improving rare-object precision and recall on long-tailed autonomous driving datasets.
 tags:
@@ -11,6 +11,8 @@ tags:
   - Self-Supervised Learning
 type: project
 ---
+
+**GitHub:** [Lake-Wang/OOD\_Enhanced\_Dino\_Vision](https://github.com/Lake-Wang/OOD_Enhanced_Dino_Vision)
 
 ## The Problem
 

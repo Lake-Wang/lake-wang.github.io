@@ -1,8 +1,8 @@
 ---
 title: NBA Game Attendance Prediction — MLOps Pipeline
 publishDate: 2025-04-01 00:00:00
-img: /assets/nba-mlops-diagram.png
-img_alt: System architecture diagram showing data pipeline, model training, and serving infrastructure on Chameleon Cloud
+img: /assets/nba-thumbnail.png
+img_alt: NBA championship trophy surrounded by team logos on a basketball court
 description: |
   Two-stage PyTorch pipeline predicting NBA game attendance from game intensity and weather signals — with Airflow orchestration, MLflow tracking, and FastAPI/Triton serving on Chameleon Cloud.
 tags:
@@ -12,6 +12,8 @@ tags:
   - MLflow
 type: project
 ---
+
+**GitHub:** [Lake-Wang/MLops\_System\_NBA\_Attendance](https://github.com/Lake-Wang/MLops_System_NBA_Attendance)
 
 ## Motivation
 
