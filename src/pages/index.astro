@@ -67,101 +67,87 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 
 			<section class="domains">
 				<h2 class="section-subhead">Application Domains</h2>
-				<p class="domains-intro">ML and data science applied outside of pure tech — three industries where domain fluency and business translation matter as much as model performance.</p>
+				<p class="domains-intro">The same ML and engineering discipline — applied across industries with fundamentally different data, constraints, and definitions of value. Healthcare, finance, and media each demanded a different intuition; the through-line is rigorous modeling and a focus on business outcomes over benchmark performance. Click any company to see the work.</p>
 
-				<!-- Desktop: hub-and-spoke SVG diagram -->
 				<div class="hub-diagram">
-					<svg viewBox="0 0 900 440" class="hub-svg" xmlns="http://www.w3.org/2000/svg">
+					<svg viewBox="0 0 900 470" class="hub-svg" xmlns="http://www.w3.org/2000/svg">
 						<defs>
 							<style>
 								.hub-ellipse { fill: var(--accent-regular); }
-								.hub-text { fill: white; font-weight: 700; font-size: 22px; font-family: var(--font-brand), system-ui, sans-serif; }
+								.hub-text { fill: white; font-weight: 700; font-size: 26px; font-family: var(--font-brand), system-ui, sans-serif; }
 								.spoke { fill: none; stroke-linecap: round; }
 								.spoke-hc { stroke: var(--accent-regular); stroke-width: 5; opacity: 0.65; }
 								.spoke-me { stroke: var(--gray-400); stroke-width: 3; opacity: 0.7; }
 								.spoke-fi { stroke: var(--gray-500); stroke-width: 1.5; opacity: 0.55; }
-								.card { transition: stroke 0.2s ease; }
-								.card-hc { fill: var(--gray-900); stroke: var(--accent-regular); stroke-width: 2; }
-								.card-me { fill: var(--gray-900); stroke: var(--gray-600); stroke-width: 1.5; }
-								.card-fi { fill: var(--gray-900); stroke: var(--gray-700); stroke-width: 1; }
-								.lnk-hc:hover .card-hc { stroke-width: 3; }
-								.lnk-me:hover .card-me,
-								.lnk-fi:hover .card-fi { stroke: var(--accent-regular); stroke-width: 2; }
-								.lnk-hc, .lnk-me, .lnk-fi { cursor: pointer; }
+								.ind-ellipse { fill: var(--gray-900); }
+								.ie-hc { stroke: var(--accent-regular); stroke-width: 2.5; }
+								.ie-me { stroke: var(--gray-600); stroke-width: 1.5; }
+								.ie-fi { stroke: var(--gray-700); stroke-width: 1; }
 								.ttl { font-family: var(--font-brand), system-ui, sans-serif; fill: var(--gray-0); font-weight: 700; }
 								.ttl-lg { font-size: 20px; }
 								.ttl-md { font-size: 16px; }
-								.ttl-sm { font-size: 14px; }
-								.desc { fill: var(--gray-200); font-size: 12.5px; font-family: system-ui, sans-serif; }
+								.ttl-sm { font-size: 15px; }
+								.desc { fill: var(--gray-200); font-size: 12px; font-family: system-ui, sans-serif; }
 								.chip { fill: var(--gray-700); }
 								.chip-txt { fill: var(--gray-300); font-size: 11px; font-family: var(--font-brand), system-ui, sans-serif; }
+								.chip-lnk { cursor: pointer; text-decoration: none; }
+								.chip-lnk:hover .chip { fill: var(--accent-regular); }
+								.chip-lnk:hover .chip-txt { fill: white; }
+								.ttl-lnk { cursor: pointer; text-decoration: none; }
+								.ttl-lnk:hover .ttl { fill: var(--accent-regular); }
 							</style>
 						</defs>
 
 						<!-- Central hub -->
-						<ellipse cx="450" cy="68" rx="135" ry="42" class="hub-ellipse" />
-						<text x="450" y="76" text-anchor="middle" class="hub-text">AI / ML</text>
+						<ellipse cx="450" cy="80" rx="130" ry="55" class="hub-ellipse" />
+						<text x="450" y="88" text-anchor="middle" class="hub-text">AI / ML</text>
 
-						<!-- Spoke lines -->
-						<line x1="355" y1="106" x2="158" y2="252" class="spoke spoke-hc" />
-						<line x1="450" y1="110" x2="450" y2="256" class="spoke spoke-me" />
-						<line x1="545" y1="106" x2="742" y2="256" class="spoke spoke-fi" />
+						<!-- Spokes (hub edge → industry ellipse edge) -->
+						<line x1="353" y1="117" x2="255" y2="289" class="spoke spoke-hc" />
+						<line x1="450" y1="135" x2="450" y2="295" class="spoke spoke-me" />
+						<line x1="548" y1="117" x2="647" y2="296" class="spoke spoke-fi" />
 
-						<!-- Healthcare card (primary, largest) -->
-						<a href="/work/#fosun" class="lnk-hc">
-							<rect x="22" y="252" width="272" height="172" rx="14" class="card card-hc" />
-							<text x="158" y="287" text-anchor="middle" class="ttl ttl-lg">Healthcare</text>
-							<text x="158" y="308" text-anchor="middle" class="desc">Clinical NLP · medical coding</text>
-							<text x="158" y="324" text-anchor="middle" class="desc">automation · glucose prediction</text>
-							<!-- Chips -->
-							<rect x="48" y="340" width="86" height="22" rx="5" class="chip" />
-							<text x="91" y="355" text-anchor="middle" class="chip-txt">XpertDox</text>
-							<rect x="146" y="340" width="54" height="22" rx="5" class="chip" />
-							<text x="173" y="355" text-anchor="middle" class="chip-txt">Fosun</text>
+						<!-- ── Healthcare ── -->
+						<ellipse cx="150" cy="345" rx="140" ry="85" class="ind-ellipse ie-hc" />
+						<a href="/work/bloom-box/" class="ttl-lnk">
+							<text x="150" y="322" text-anchor="middle" class="ttl ttl-lg">Healthcare</text>
+						</a>
+						<text x="150" y="342" text-anchor="middle" class="desc">Clinical NLP · medical coding</text>
+						<text x="150" y="357" text-anchor="middle" class="desc">automation · glucose prediction</text>
+						<a href="/work/bloom-box/" class="chip-lnk">
+							<rect x="77" y="373" width="82" height="19" rx="5" class="chip" />
+							<text x="118" y="386" text-anchor="middle" class="chip-txt">XpertDox</text>
+						</a>
+						<a href="/work/#fosun" class="chip-lnk">
+							<rect x="168" y="373" width="58" height="19" rx="5" class="chip" />
+							<text x="197" y="386" text-anchor="middle" class="chip-txt">Fosun</text>
 						</a>
 
-						<!-- Media card (secondary) -->
-						<a href="/work/" class="lnk-me">
-							<rect x="330" y="256" width="240" height="162" rx="12" class="card card-me" />
-							<text x="450" y="287" text-anchor="middle" class="ttl ttl-md">Media &amp;</text>
-							<text x="450" y="305" text-anchor="middle" class="ttl ttl-md">Entertainment</text>
-							<text x="450" y="326" text-anchor="middle" class="desc">Hierarchical demand forecasting</text>
-							<text x="450" y="342" text-anchor="middle" class="desc">across 11 digital platforms</text>
-							<!-- Chip -->
-							<rect x="349" y="358" width="202" height="22" rx="5" class="chip" />
-							<text x="450" y="373" text-anchor="middle" class="chip-txt">NBCUniversal</text>
+						<!-- ── Media & Entertainment ── -->
+						<ellipse cx="450" cy="368" rx="122" ry="73" class="ind-ellipse ie-me" />
+						<a href="/work/h20/" class="ttl-lnk">
+							<text x="450" y="348" text-anchor="middle" class="ttl ttl-md">Media &amp;</text>
+							<text x="450" y="366" text-anchor="middle" class="ttl ttl-md">Entertainment</text>
+						</a>
+						<text x="450" y="384" text-anchor="middle" class="desc">Hierarchical demand forecasting</text>
+						<text x="450" y="397" text-anchor="middle" class="desc">across 11 digital platforms</text>
+						<a href="/work/h20/" class="chip-lnk">
+							<rect x="386" y="411" width="128" height="19" rx="5" class="chip" />
+							<text x="450" y="424" text-anchor="middle" class="chip-txt">NBCUniversal</text>
 						</a>
 
-						<!-- Finance card (tertiary, smallest) -->
-						<a href="/work/#haitong-securities" class="lnk-fi">
-							<rect x="606" y="256" width="272" height="136" rx="12" class="card card-fi" />
-							<text x="742" y="285" text-anchor="middle" class="ttl ttl-sm">Finance</text>
-							<text x="742" y="303" text-anchor="middle" class="desc">Deep RL for quantitative</text>
-							<text x="742" y="319" text-anchor="middle" class="desc">trading strategy</text>
-							<!-- Chip -->
-							<rect x="633" y="334" width="218" height="22" rx="5" class="chip" />
-							<text x="742" y="349" text-anchor="middle" class="chip-txt">Haitong Securities</text>
+						<!-- ── Finance ── -->
+						<ellipse cx="750" cy="340" rx="110" ry="65" class="ind-ellipse ie-fi" />
+						<a href="/work/#haitong-securities" class="ttl-lnk">
+							<text x="750" y="322" text-anchor="middle" class="ttl ttl-sm">Finance</text>
+						</a>
+						<text x="750" y="340" text-anchor="middle" class="desc">Deep RL for quantitative</text>
+						<text x="750" y="354" text-anchor="middle" class="desc">trading strategy</text>
+						<a href="/work/#haitong-securities" class="chip-lnk">
+							<rect x="672" y="368" width="156" height="19" rx="5" class="chip" />
+							<text x="750" y="381" text-anchor="middle" class="chip-txt">Haitong Securities</text>
 						</a>
 					</svg>
-				</div>
-
-				<!-- Mobile: stacked cards (SVG doesn't scale well on narrow viewports) -->
-				<div class="domain-cards-mobile">
-					<a href="/work/#fosun" class="domain-card-m">
-						<span class="dcm-label">Healthcare</span>
-						<p class="dcm-desc">Clinical NLP and medical coding automation; predictive modeling for non-invasive medical devices</p>
-						<div class="dcm-orgs"><span>XpertDox</span><span>Fosun</span></div>
-					</a>
-					<a href="/work/" class="domain-card-m">
-						<span class="dcm-label">Media & Entertainment</span>
-						<p class="dcm-desc">Hierarchical demand forecasting across 11 digital streaming platforms</p>
-						<div class="dcm-orgs"><span>NBCUniversal</span></div>
-					</a>
-					<a href="/work/#haitong-securities" class="domain-card-m">
-						<span class="dcm-label">Finance</span>
-						<p class="dcm-desc">Deep RL for quantitative trading strategy</p>
-						<div class="dcm-orgs"><span>Haitong Securities</span></div>
-					</a>
 				</div>
 			</section>
 
@@ -217,16 +203,8 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 			padding-inline: 2.5rem;
 			gap: 3.75rem;
 		}
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
+		.roles { margin-top: 0.5rem; display: flex; gap: 0.5rem; }
+		.hero img { aspect-ratio: 3 / 4; border-radius: 4.5rem; object-fit: cover; }
 	}
 
 	/* ====================================================== */
@@ -251,67 +229,21 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 	.domains-intro {
 		font-size: var(--text-sm);
 		color: var(--gray-400);
-		max-width: 60ch;
+		max-width: 68ch;
+		line-height: 1.6;
 	}
 
 	@media (min-width: 50em) {
 		.domains-intro { font-size: var(--text-md); }
 	}
 
-	/* Hub diagram — desktop only */
-	.hub-diagram { display: none; }
-	.domain-cards-mobile { display: flex; flex-direction: column; gap: 1rem; }
-
-	@media (min-width: 50em) {
-		.hub-diagram { display: block; }
-		.domain-cards-mobile { display: none; }
-	}
+	.hub-diagram { width: 100%; }
 
 	.hub-svg {
 		width: 100%;
 		height: auto;
 		display: block;
 		overflow: visible;
-	}
-
-	/* Mobile fallback cards */
-	.domain-card-m {
-		display: flex;
-		flex-direction: column;
-		gap: 0.45rem;
-		padding: 1.1rem 1.25rem;
-		border: 1px solid var(--gray-800);
-		border-radius: 0.9rem;
-		background: var(--gradient-subtle);
-		text-decoration: none;
-	}
-
-	.dcm-label {
-		font-size: var(--text-lg);
-		font-weight: 700;
-		font-family: var(--font-brand);
-		color: var(--gray-0);
-	}
-
-	.dcm-desc {
-		font-size: var(--text-sm);
-		color: var(--gray-300);
-		line-height: 1.5;
-	}
-
-	.dcm-orgs {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.4rem;
-		margin-top: 0.2rem;
-	}
-
-	.dcm-orgs span {
-		font-size: var(--text-sm);
-		color: var(--gray-400);
-		background: var(--gray-900);
-		padding: 0.1rem 0.55rem;
-		border-radius: 0.35rem;
 	}
 
 	/* ====================================================== */
@@ -343,29 +275,10 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 		gap: 1rem;
 	}
 
-	.edu-school {
-		font-size: var(--text-md);
-		font-weight: 600;
-		color: var(--gray-0);
-	}
-
-	.edu-dates {
-		font-size: var(--text-sm);
-		color: var(--gray-400);
-		font-family: var(--font-brand);
-		flex-shrink: 0;
-	}
-
-	.edu-degree {
-		font-size: var(--text-sm);
-		color: var(--gray-300);
-	}
-
-	.edu-note {
-		font-size: var(--text-sm);
-		color: var(--gray-400);
-		margin-top: 0.1rem;
-	}
+	.edu-school { font-size: var(--text-md); font-weight: 600; color: var(--gray-0); }
+	.edu-dates { font-size: var(--text-sm); color: var(--gray-400); font-family: var(--font-brand); flex-shrink: 0; }
+	.edu-degree { font-size: var(--text-sm); color: var(--gray-300); }
+	.edu-note { font-size: var(--text-sm); color: var(--gray-400); margin-top: 0.1rem; }
 
 	@media (min-width: 50em) {
 		.edu-school { font-size: var(--text-lg); }
@@ -418,10 +331,7 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 		.section.with-cta {
 			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
 		}
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
+		.section-header { grid-area: header; font-size: var(--text-lg); }
 		.section-header h3 { font-size: var(--text-4xl); }
 		.with-cta .section-header { justify-self: flex-start; text-align: left; }
 		.gallery { grid-area: gallery; }
