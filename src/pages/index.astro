@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-// Component Imports
 import CallToAction from '../components/CallToAction.astro';
-// Page section components
 import ContactCTA from '../components/ContactCTA.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
@@ -10,16 +8,11 @@ import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Skills from '../components/Skills.astro';
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const allWork = (await getCollection('work'))
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 const experience = allWork.filter((e) => e.data.type === 'experience');
-const projects = allWork.filter((e) => e.data.type === 'project');
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
 ---
 
 <BaseLayout>
@@ -47,60 +40,13 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 			</header>
 
 			<Skills />
-
-			<section class="earlier-exp">
-				<h2 class="edu-heading">Earlier Experience</h2>
-				<div class="edu-entries">
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">New York University</span>
-							<span class="edu-dates">2025</span>
-						</div>
-						<p class="edu-degree">Adjunct Instructor</p>
-					</div>
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">Urban Science</span>
-							<span class="edu-dates">2023</span>
-						</div>
-						<p class="edu-degree">Data Analytics Intern</p>
-					</div>
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">Haitong Securities</span>
-							<span class="edu-dates">2022</span>
-						</div>
-						<p class="edu-degree">Quantitative Strategy Intern</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="education">
-				<h2 class="edu-heading">Education</h2>
-				<div class="edu-entries">
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">New York University</span>
-							<span class="edu-dates">2023 – 2025</span>
-						</div>
-						<p class="edu-degree">M.S. Data Science &nbsp;·&nbsp; GPA 3.95</p>
-					</div>
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">NYU Shanghai</span>
-							<span class="edu-dates">2018 – 2022</span>
-						</div>
-						<p class="edu-degree">B.S. Data Science (AI) &amp; Economics &nbsp;·&nbsp; GPA 3.69</p>
-					</div>
-				</div>
-			</section>
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Featured Work</h3>
-					<p>Current and most recent roles — where the bulk of my production ML experience lives.</p>
+					<h3>Work Highlights</h3>
+					<p>Current and most recent roles. The Work page has the full experience history and academic projects.</p>
 				</header>
 
 				<div class="gallery">
@@ -119,6 +65,57 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 				</div>
 			</section>
 
+			<section class="earlier-exp">
+				<h2 class="edu-heading">Earlier Experience</h2>
+				<div class="edu-entries">
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">New York University</span>
+							<span class="edu-dates">2025</span>
+						</div>
+						<p class="edu-degree">Adjunct Instructor</p>
+						<p class="edu-note">Guided 6 MS capstone teams on problem framing, model design, and end-to-end delivery.</p>
+					</div>
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">Urban Science</span>
+							<span class="edu-dates">2023</span>
+						</div>
+						<p class="edu-degree">Data Analytics Intern</p>
+						<p class="edu-note">Built customer churn classifiers for automotive clients; risk tiers adopted into client retention workflows.</p>
+					</div>
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">Haitong Securities</span>
+							<span class="edu-dates">2022</span>
+						</div>
+						<p class="edu-degree">Quantitative Strategy Intern</p>
+						<p class="edu-note">SAC-based deep RL trading strategy; 29% Sharpe ratio improvement over the buy-and-hold baseline.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="education">
+				<h2 class="edu-heading">Education</h2>
+				<div class="edu-entries">
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">New York University</span>
+							<span class="edu-dates">2023 – 2025</span>
+						</div>
+						<p class="edu-degree">M.S. Data Science &nbsp;·&nbsp; GPA 3.95</p>
+						<p class="edu-note">ML System Design · NLP · Deep Learning &nbsp;·&nbsp; TA: Big Data, Intro to Data Science</p>
+					</div>
+					<div class="edu-entry">
+						<div class="edu-row">
+							<span class="edu-school">NYU Shanghai</span>
+							<span class="edu-dates">2018 – 2022</span>
+						</div>
+						<p class="edu-degree">B.S. Data Science (AI) &amp; Economics &nbsp;·&nbsp; GPA 3.69</p>
+						<p class="edu-note">Reinforcement Learning · Database · Machine Learning · Econometrics</p>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<ContactCTA />
@@ -168,6 +165,7 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 
 	/* ====================================================== */
 
+	.earlier-exp,
 	.education {
 		display: flex;
 		flex-direction: column;
@@ -218,6 +216,12 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 		color: var(--gray-300);
 	}
 
+	.edu-note {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		margin-top: 0.1rem;
+	}
+
 	@media (min-width: 50em) {
 		.edu-heading {
 			font-size: var(--text-2xl);
@@ -227,7 +231,8 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 			font-size: var(--text-lg);
 		}
 
-		.edu-degree {
+		.edu-degree,
+		.edu-note {
 			font-size: var(--text-md);
 		}
 	}
@@ -310,44 +315,6 @@ const projects = allWork.filter((e) => e.data.type === 'project');
 
 		.cta {
 			grid-area: cta;
-		}
-	}
-
-	.home-work-group {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-
-	.home-work-label {
-		font-size: var(--text-sm);
-		font-family: var(--font-brand);
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--gray-400);
-		padding-bottom: 0.5rem;
-		border-bottom: 1px dashed var(--gray-700);
-	}
-
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
 		}
 	}
 </style>
