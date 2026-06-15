@@ -21,7 +21,7 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 			<header class="hero">
 				<Hero
 					title="Hello, my name is Yuxuan Wang"
-					tagline="I am a Data Scientist specializing in clinical NLP and production ML — currently based in Phoenix, Arizona."
+					tagline="Machine learning engineer focused on systems that work in production — not just models that perform on paper. I specialize in clinical NLP, with experience across healthcare, media, and finance. The through-line: reliable systems, measurable impact, and models that earn the trust of the workflows they're embedded in. Based in Phoenix, Arizona."
 					align="start"
 				>
 					<div class="roles">
@@ -38,8 +38,6 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 					src="/assets/portrait.jpg"
 				/>
 			</header>
-
-			<Skills />
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
@@ -67,89 +65,89 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 
 			<section class="domains">
 				<h2 class="section-subhead">Application Domains</h2>
-				<p class="domains-intro">The same ML and engineering discipline — applied across industries with fundamentally different data, constraints, and definitions of value. Healthcare, finance, and media each demanded a different intuition; the through-line is rigorous modeling and a focus on business outcomes over benchmark performance. Click any company to see the work.</p>
+				<p class="domains-intro">Each domain shaped a different part of the practice — a different data intuition, a different standard for what "working" means, a different relationship with domain experts. Click any company to explore the work. <span class="hub-fn">*Pinch to zoom on mobile.</span></p>
 
 				<div class="hub-diagram">
-					<svg viewBox="0 0 900 470" class="hub-svg" xmlns="http://www.w3.org/2000/svg">
+					<svg viewBox="0 0 900 390" class="hub-svg" xmlns="http://www.w3.org/2000/svg">
 						<defs>
 							<style>
-								.hub-ellipse { fill: var(--accent-regular); }
-								.hub-text { fill: white; font-weight: 700; font-size: 26px; font-family: var(--font-brand), system-ui, sans-serif; }
+								.hub-el { fill: var(--accent-regular); }
+								.hub-tx { fill: white; font-weight: 700; font-size: 26px; font-family: var(--font-brand), system-ui, sans-serif; }
 								.spoke { fill: none; stroke-linecap: round; }
-								.spoke-hc { stroke: var(--accent-regular); stroke-width: 5; opacity: 0.65; }
-								.spoke-me { stroke: var(--gray-400); stroke-width: 3; opacity: 0.7; }
-								.spoke-fi { stroke: var(--gray-500); stroke-width: 1.5; opacity: 0.55; }
-								.ind-ellipse { fill: var(--gray-900); }
-								.ie-hc { stroke: var(--accent-regular); stroke-width: 2.5; }
-								.ie-me { stroke: var(--gray-600); stroke-width: 1.5; }
+								.sp-hc { stroke: var(--gray-300); stroke-width: 4; }
+								.sp-me { stroke: var(--gray-400); stroke-width: 2.5; }
+								.sp-fi { stroke: var(--gray-500); stroke-width: 1.5; }
+								.ind-el { fill: var(--gray-900); stroke: var(--gray-600); stroke-width: 1.5; }
 								.ie-fi { stroke: var(--gray-700); stroke-width: 1; }
-								.ttl { font-family: var(--font-brand), system-ui, sans-serif; fill: var(--gray-0); font-weight: 700; }
-								.ttl-lg { font-size: 20px; }
-								.ttl-md { font-size: 16px; }
-								.ttl-sm { font-size: 15px; }
+								.ttl { font-family: var(--font-brand), system-ui, sans-serif; font-weight: 700; }
+								.ttl-hc { fill: var(--accent-regular); font-size: 20px; }
+								.ttl-me { fill: var(--gray-0); font-size: 16px; }
+								.ttl-fi { fill: var(--gray-0); font-size: 15px; }
 								.desc { fill: var(--gray-200); font-size: 12px; font-family: system-ui, sans-serif; }
 								.chip { fill: var(--gray-700); }
-								.chip-txt { fill: var(--gray-300); font-size: 11px; font-family: var(--font-brand), system-ui, sans-serif; }
-								.chip-lnk { cursor: pointer; text-decoration: none; }
-								.chip-lnk:hover .chip { fill: var(--accent-regular); }
-								.chip-lnk:hover .chip-txt { fill: white; }
-								.ttl-lnk { cursor: pointer; text-decoration: none; }
-								.ttl-lnk:hover .ttl { fill: var(--accent-regular); }
+								.chip-tx { fill: var(--gray-300); font-size: 11px; font-family: var(--font-brand), system-ui, sans-serif; }
+								.clnk { cursor: pointer; text-decoration: none; }
+								.clnk:hover .chip { fill: var(--accent-regular); }
+								.clnk:hover .chip-tx { fill: white; }
+								.tlnk { cursor: pointer; text-decoration: none; }
+								.tlnk:hover .ttl { fill: var(--accent-regular); }
 							</style>
 						</defs>
 
-						<!-- Central hub -->
-						<ellipse cx="450" cy="80" rx="130" ry="55" class="hub-ellipse" />
-						<text x="450" y="88" text-anchor="middle" class="hub-text">AI / ML</text>
+						<!-- Hub -->
+						<ellipse cx="450" cy="75" rx="130" ry="52" class="hub-el" />
+						<text x="450" y="83" text-anchor="middle" class="hub-tx">AI / ML</text>
 
-						<!-- Spokes (hub edge → industry ellipse edge) -->
-						<line x1="353" y1="117" x2="255" y2="289" class="spoke spoke-hc" />
-						<line x1="450" y1="135" x2="450" y2="295" class="spoke spoke-me" />
-						<line x1="548" y1="117" x2="647" y2="296" class="spoke spoke-fi" />
+						<!-- Spokes — thicker to primary (HC center), thinner to secondary/tertiary -->
+						<line x1="340" y1="103" x2="247" y2="210" class="spoke sp-me" />
+						<line x1="450" y1="127" x2="450" y2="172" class="spoke sp-hc" />
+						<line x1="558" y1="103" x2="664" y2="217" class="spoke sp-fi" />
 
-						<!-- ── Healthcare ── -->
-						<ellipse cx="150" cy="345" rx="140" ry="85" class="ind-ellipse ie-hc" />
-						<a href="/work/bloom-box/" class="ttl-lnk">
-							<text x="150" y="322" text-anchor="middle" class="ttl ttl-lg">Healthcare</text>
+						<!-- ── Media & Entertainment (left, secondary) ── -->
+						<ellipse cx="155" cy="260" rx="108" ry="95" class="ind-el" />
+						<a href="/work/h20/" class="tlnk">
+							<text x="155" y="227" text-anchor="middle" class="ttl ttl-me">Media &amp;</text>
+							<text x="155" y="245" text-anchor="middle" class="ttl ttl-me">Entertainment</text>
 						</a>
-						<text x="150" y="342" text-anchor="middle" class="desc">Clinical NLP · medical coding</text>
-						<text x="150" y="357" text-anchor="middle" class="desc">automation · glucose prediction</text>
-						<a href="/work/bloom-box/" class="chip-lnk">
-							<rect x="77" y="373" width="82" height="19" rx="5" class="chip" />
-							<text x="118" y="386" text-anchor="middle" class="chip-txt">XpertDox</text>
-						</a>
-						<a href="/work/#fosun" class="chip-lnk">
-							<rect x="168" y="373" width="58" height="19" rx="5" class="chip" />
-							<text x="197" y="386" text-anchor="middle" class="chip-txt">Fosun</text>
+						<text x="155" y="263" text-anchor="middle" class="desc">Hierarchical demand forecasting</text>
+						<text x="155" y="278" text-anchor="middle" class="desc">across 11 digital platforms</text>
+						<a href="/work/h20/" class="clnk">
+							<rect x="86" y="294" width="138" height="18" rx="5" class="chip" />
+							<text x="155" y="307" text-anchor="middle" class="chip-tx">NBCUniversal</text>
 						</a>
 
-						<!-- ── Media & Entertainment ── -->
-						<ellipse cx="450" cy="368" rx="122" ry="73" class="ind-ellipse ie-me" />
-						<a href="/work/h20/" class="ttl-lnk">
-							<text x="450" y="348" text-anchor="middle" class="ttl ttl-md">Media &amp;</text>
-							<text x="450" y="366" text-anchor="middle" class="ttl ttl-md">Entertainment</text>
+						<!-- ── Healthcare (center, primary — largest, accent title) ── -->
+						<ellipse cx="450" cy="272" rx="115" ry="100" class="ind-el" />
+						<a href="/work/bloom-box/" class="tlnk">
+							<text x="450" y="244" text-anchor="middle" class="ttl ttl-hc">Healthcare</text>
 						</a>
-						<text x="450" y="384" text-anchor="middle" class="desc">Hierarchical demand forecasting</text>
-						<text x="450" y="397" text-anchor="middle" class="desc">across 11 digital platforms</text>
-						<a href="/work/h20/" class="chip-lnk">
-							<rect x="386" y="411" width="128" height="19" rx="5" class="chip" />
-							<text x="450" y="424" text-anchor="middle" class="chip-txt">NBCUniversal</text>
+						<text x="450" y="265" text-anchor="middle" class="desc">Clinical NLP · medical coding</text>
+						<text x="450" y="280" text-anchor="middle" class="desc">automation · glucose prediction</text>
+						<a href="/work/bloom-box/" class="clnk">
+							<rect x="378" y="297" width="80" height="18" rx="5" class="chip" />
+							<text x="418" y="310" text-anchor="middle" class="chip-tx">XpertDox</text>
+						</a>
+						<a href="/work/#fosun" class="clnk">
+							<rect x="466" y="297" width="56" height="18" rx="5" class="chip" />
+							<text x="494" y="310" text-anchor="middle" class="chip-tx">Fosun</text>
 						</a>
 
-						<!-- ── Finance ── -->
-						<ellipse cx="750" cy="340" rx="110" ry="65" class="ind-ellipse ie-fi" />
-						<a href="/work/#haitong-securities" class="ttl-lnk">
-							<text x="750" y="322" text-anchor="middle" class="ttl ttl-sm">Finance</text>
+						<!-- ── Finance (right, tertiary — smallest) ── -->
+						<ellipse cx="745" cy="260" rx="95" ry="82" class="ind-el ie-fi" />
+						<a href="/work/#haitong-securities" class="tlnk">
+							<text x="745" y="231" text-anchor="middle" class="ttl ttl-fi">Finance</text>
 						</a>
-						<text x="750" y="340" text-anchor="middle" class="desc">Deep RL for quantitative</text>
-						<text x="750" y="354" text-anchor="middle" class="desc">trading strategy</text>
-						<a href="/work/#haitong-securities" class="chip-lnk">
-							<rect x="672" y="368" width="156" height="19" rx="5" class="chip" />
-							<text x="750" y="381" text-anchor="middle" class="chip-txt">Haitong Securities</text>
+						<text x="745" y="250" text-anchor="middle" class="desc">Deep RL for quantitative</text>
+						<text x="745" y="265" text-anchor="middle" class="desc">trading strategy</text>
+						<a href="/work/#haitong-securities" class="clnk">
+							<rect x="669" y="281" width="152" height="18" rx="5" class="chip" />
+							<text x="745" y="294" text-anchor="middle" class="chip-tx">Haitong Securities</text>
 						</a>
 					</svg>
 				</div>
 			</section>
+
+			<Skills />
 
 			<section class="education">
 				<h2 class="section-subhead">Education</h2>
@@ -171,6 +169,11 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 						<p class="edu-note">Reinforcement Learning · Database · Machine Learning · Econometrics</p>
 					</div>
 				</div>
+			</section>
+			<section class="about-invite">
+				<p class="invite-line">There's more to the story than the work history.</p>
+				<p class="invite-sub">Background, how I think about the work, and what I do outside of ML.</p>
+				<a href="/about/" class="invite-link">Read About Me <span aria-hidden="true">→</span></a>
 			</section>
 		</main>
 
@@ -229,7 +232,7 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 	.domains-intro {
 		font-size: var(--text-sm);
 		color: var(--gray-400);
-		max-width: 68ch;
+		max-width: 62ch;
 		line-height: 1.6;
 	}
 
@@ -244,6 +247,11 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 		height: auto;
 		display: block;
 		overflow: visible;
+	}
+
+	.hub-fn {
+		font-size: 0.85em;
+		color: var(--gray-500);
 	}
 
 	/* ====================================================== */
@@ -287,8 +295,46 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 
 	/* ====================================================== */
 
-	.section { display: grid; gap: 2rem; }
+	.about-invite {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
 
+	.invite-line {
+		font-size: var(--text-lg);
+		font-weight: 600;
+		color: var(--gray-0);
+	}
+
+	.invite-sub {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		line-height: 1.5;
+	}
+
+	.invite-link {
+		margin-top: 0.4rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: var(--text-sm);
+		font-weight: 600;
+		color: var(--accent-regular);
+		text-decoration: none;
+		transition: color var(--theme-transition);
+	}
+
+	.invite-link:hover { color: var(--accent-dark); }
+
+	@media (min-width: 50em) {
+		.invite-line { font-size: var(--text-xl); }
+		.invite-sub, .invite-link { font-size: var(--text-md); }
+	}
+
+	/* ====================================================== */
+
+	.section { display: grid; gap: 2rem; }
 	.with-background { position: relative; }
 
 	.with-background::before {

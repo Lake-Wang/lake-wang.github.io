@@ -12,10 +12,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
 			>
 				<img
-					width="1553"
-					height="873"
-					src="/assets/at-work.jpg"
-					alt="Yuxuan Wang at work"
+					width="940"
+					height="1253"
+					src="/assets/about-photo.jpg"
+					alt="Yuxuan Wang at Yellowstone"
 				/>
 			</Hero>
 
@@ -23,20 +23,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						Machine learning engineer focused on <strong>clinical NLP</strong> and <strong>medical coding automation</strong> — building
-						systems where model decisions carry real consequences and accuracy is measured in
-						<strong>healthcare outcomes</strong>, not just benchmarks.
+						Machine learning engineer who has built <strong>production systems across healthcare, media, and finance</strong> —
+						each demanding a different data intuition, a different standard for what "working" means,
+						and a different relationship with the domain experts who depend on the outputs.
 					</p>
 					<p>
-						At <strong>XpertDox</strong>, I work across the full stack: redesigning data infrastructure, training and
-						owning production models, and translating performance into the <strong>business metrics</strong> that actually
-						matter to clinical and product stakeholders. The scope has grown from a narrow ICD classifier
-						to a <strong>platform covering CPT, ICD, and billing across 2,000 codes</strong>.
+						The common thread isn't a specific technique but a disposition: building systems that
+						<strong>operate reliably in production</strong>, not models that perform well in controlled conditions.
+						At <strong>XpertDox</strong>, I own clinical coding infrastructure at scale. At <strong>NBCUniversal</strong>,
+						I forecasted content demand across 11 digital platforms. At <strong>Fosun</strong>, I tackled
+						glucose prediction with real cold-start and cross-user variability — not toy versions
+						of the problem.
 					</p>
 					<p>
-						Before this, I worked across media and healthcare during my M.S. at NYU — forecasting at
-						<strong>NBCUniversal</strong>, predictive modeling for <strong>non-invasive glucose monitoring</strong> — building the range
-						that makes domain-specific depth more useful.
+						What that range has taught me is that the hardest part of applied ML is rarely the model
+						itself. It's understanding the <strong>failure modes that matter</strong> to the system, designing around
+						the ones that don't, and earning the trust of the people whose workflows depend on the output.
 					</p>
 				</div>
 			</section>
@@ -46,14 +48,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<p>
 						The longer I work in production ML, the more my definition of a good model has shifted —
 						from one with strong metrics to one that actually <strong>fits the system it lives in</strong> and
-						generates real value there. Those aren't always the same thing.
+						generates measurable value there. Those aren't always the same thing.
 					</p>
 					<p>
-						In high-stakes domains, the most valuable use of a model is often not the obvious one —
-						sometimes it's most useful not when it's <strong>confidently right</strong>, but when it <strong>quietly disagrees</strong>,
-						flagging cases where learned patterns diverge from established rules for expert review.
-						The technical work of building a good model is one problem; knowing what to do with it
-						in a system built around <strong>human expertise</strong> is a different problem, and usually the more interesting one.
+						Production ownership means <strong>staying close to the outputs</strong>. I review model decisions weekly,
+						interrogate production data personally to surface patterns that automated monitoring
+						wouldn't catch, and turn findings into model changes within days. A model in deployment
+						is a living system — monitoring is a practice, not a dashboard.
+					</p>
+					<p>
+						In high-stakes clinical workflows, a model earns its place by serving two functions
+						well: being a reliable enough <strong>confidence signal</strong> that it can eliminate review for clear
+						cases, and being a sensitive enough <strong>auditor</strong> that it catches meaningful deviations from
+						established rules. Getting both right requires understanding where and when the model
+						<strong>should and shouldn't be trusted</strong> — which is a harder problem than building the model itself.
 					</p>
 				</div>
 			</section>
@@ -95,9 +103,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	img {
+		display: block;
+		align-self: center;
 		margin-top: 1.5rem;
 		border-radius: 1.5rem;
 		box-shadow: var(--shadow-md);
+		max-width: 360px;
+		width: 100%;
 	}
 
 	section {

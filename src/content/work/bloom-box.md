@@ -1,8 +1,8 @@
 ---
 title: Automated Medical Coding at XpertDox
 publishDate: 2025-10-01 00:00:00
-img: /assets/stock-1.jpg
-img_alt: Abstract visualization of a machine learning system processing clinical documents
+img: /assets/xpertdox-thumbnail.png
+img_alt: Medical coder reviewing ICD-10, CPT, and HCPCS codes on dual monitors
 description: |
   Full-stack ML ownership for automated ICD, CPT, and billing classification — two complementary model architectures operating in production at scale, substantially reducing mandatory human review.
 tags:
