@@ -65,38 +65,45 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 				</div>
 			</section>
 
-			<section class="earlier-exp">
-				<h2 class="edu-heading">Earlier Experience</h2>
-				<div class="edu-entries">
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">New York University</span>
-							<span class="edu-dates">2025</span>
+			<section class="domains">
+				<h2 class="section-subhead">Application Domains</h2>
+				<p class="domains-intro">ML and data science applied outside of pure tech — across four industries where domain depth and business translation matter as much as model quality.</p>
+				<div class="domain-grid">
+					<a href="/work/#fosun" class="domain-card">
+						<span class="domain-label">Healthcare</span>
+						<p class="domain-desc">Clinical NLP and medical coding automation at scale; predictive modeling for non-invasive medical devices</p>
+						<div class="domain-orgs">
+							<span>XpertDox</span>
+							<span>Fosun</span>
 						</div>
-						<p class="edu-degree">Adjunct Instructor</p>
-						<p class="edu-note">Guided 6 MS capstone teams on problem framing, model design, and end-to-end delivery.</p>
-					</div>
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">Urban Science</span>
-							<span class="edu-dates">2023</span>
+					</a>
+					<a href="/work/#haitong-securities" class="domain-card">
+						<span class="domain-label">Finance</span>
+						<p class="domain-desc">Deep RL for quantitative trading strategy; equity research and securities analysis</p>
+						<div class="domain-orgs">
+							<span>Haitong Securities</span>
+							<span>Guosheng Securities</span>
 						</div>
-						<p class="edu-degree">Data Analytics Intern</p>
-						<p class="edu-note">Built customer churn classifiers for automotive clients; risk tiers adopted into client retention workflows.</p>
-					</div>
-					<div class="edu-entry">
-						<div class="edu-row">
-							<span class="edu-school">Haitong Securities</span>
-							<span class="edu-dates">2022</span>
+					</a>
+					<a href="/work/" class="domain-card">
+						<span class="domain-label">Media & Entertainment</span>
+						<p class="domain-desc">Hierarchical demand forecasting across 11 digital streaming platforms for ad sales and finance planning</p>
+						<div class="domain-orgs">
+							<span>NBCUniversal</span>
 						</div>
-						<p class="edu-degree">Quantitative Strategy Intern</p>
-						<p class="edu-note">SAC-based deep RL trading strategy; 29% Sharpe ratio improvement over the buy-and-hold baseline.</p>
-					</div>
+					</a>
+					<a href="/work/#urban-science" class="domain-card">
+						<span class="domain-label">Consulting</span>
+						<p class="domain-desc">Applied ML for customer retention and automotive after-sales analytics for enterprise clients</p>
+						<div class="domain-orgs">
+							<span>Urban Science</span>
+						</div>
+					</a>
 				</div>
 			</section>
 
 			<section class="education">
-				<h2 class="edu-heading">Education</h2>
+				<h2 class="section-subhead">Education</h2>
 				<div class="edu-entries">
 					<div class="edu-entry">
 						<div class="edu-row">
@@ -165,16 +172,100 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 
 	/* ====================================================== */
 
-	.earlier-exp,
+	.section-subhead {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	@media (min-width: 50em) {
+		.section-subhead {
+			font-size: var(--text-2xl);
+		}
+	}
+
+	/* ====================================================== */
+
+	.domains {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.domains-intro {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		max-width: 60ch;
+	}
+
+	.domain-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	@media (min-width: 50em) {
+		.domain-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.domains-intro {
+			font-size: var(--text-md);
+		}
+	}
+
+	.domain-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1.25rem 1.5rem;
+		border: 1px solid var(--gray-800);
+		border-radius: 1rem;
+		background: var(--gradient-subtle);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color var(--theme-transition), box-shadow var(--theme-transition);
+	}
+
+	.domain-card:hover {
+		border-color: var(--accent-regular);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.domain-label {
+		font-size: var(--text-lg);
+		font-weight: 700;
+		font-family: var(--font-brand);
+		color: var(--gray-0);
+	}
+
+	.domain-desc {
+		font-size: var(--text-sm);
+		color: var(--gray-300);
+		line-height: 1.55;
+		flex: 1;
+	}
+
+	.domain-orgs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-top: 0.35rem;
+	}
+
+	.domain-orgs span {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		background: var(--gray-900);
+		padding: 0.15rem 0.6rem;
+		border-radius: 0.4rem;
+	}
+
+	/* ====================================================== */
+
 	.education {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
-	}
-
-	.edu-heading {
-		font-size: var(--text-xl);
-		color: var(--gray-0);
 	}
 
 	.edu-entries {
@@ -223,10 +314,6 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 	}
 
 	@media (min-width: 50em) {
-		.edu-heading {
-			font-size: var(--text-2xl);
-		}
-
 		.edu-school {
 			font-size: var(--text-lg);
 		}

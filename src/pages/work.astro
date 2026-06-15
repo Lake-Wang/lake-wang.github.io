@@ -22,18 +22,21 @@ const additionalRoles = [
 	},
 	{
 		company: 'Urban Science',
+		id: 'urban-science',
 		role: 'Data Analytics Intern',
 		dates: 'May – Aug 2023',
 		desc: 'Delivered applied ML solutions for automotive consulting clients across customer retention and after-sales analytics. Built classification models to surface churn risk and enable targeted intervention.',
 	},
 	{
 		company: 'Haitong Securities',
+		id: 'haitong-securities',
 		role: 'Quantitative Strategy Intern',
 		dates: 'Aug – Dec 2022',
 		desc: 'Developed a deep RL trading strategy using a SAC ensemble with sliding-window validation for regime shifts. Achieved a 29% Sharpe ratio improvement over baseline through reduced volatility and better position sizing.',
 	},
 	{
 		company: 'Fosun',
+		id: 'fosun',
 		role: 'AI & Data Science Intern',
 		dates: 'May 2021 – Jun 2022',
 		desc: 'Built ML models for non-invasive glucose prediction, tackling cross-user variability and cold-start challenges via feature engineering, clustering, and model optimization. Reduced cold-start error by 23% and achieved RMSE of 0.6 (non-diabetic) / 1.4 (diabetic), enabling shorter calibration cycles.',
@@ -79,7 +82,7 @@ const additionalRoles = [
 
 				<div class="additional-exp">
 					{additionalRoles.map((role) => (
-						<div class="extra-entry">
+						<div class="extra-entry" id={role.id}>
 							<div class="extra-header">
 								<div class="extra-title">
 									<span class="extra-company">{role.company}</span>

@@ -1,6 +1,6 @@
 ---
 title: OOD-Enhanced Self-Supervised Visual Learning
-publishDate: 2024-09-01 00:00:00
+publishDate: 2025-06-01 00:00:00
 img: /assets/ood-thumbnail.jpg
 img_alt: Autonomous driving scene with object detection bounding boxes highlighting pedestrians and cars
 description: |
