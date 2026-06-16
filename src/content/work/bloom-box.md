@@ -5,6 +5,7 @@ img: /assets/xpertdox-thumbnail.png
 img_alt: Medical coder reviewing ICD-10, CPT, and HCPCS codes on dual monitors
 description: |
   Full-stack ML ownership for automated medical coding — production models serving a large distributed clinical fleet, with direct accountability for accuracy, reliability, and business impact.
+metric: "Clinical NLP · full ML lifecycle · distributed production fleet"
 tags:
   - Clinical NLP
   - Production ML

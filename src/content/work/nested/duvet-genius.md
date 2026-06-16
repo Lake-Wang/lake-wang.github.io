@@ -4,7 +4,9 @@ publishDate: 2025-06-01 00:00:00
 img: /assets/ood-thumbnail.jpg
 img_alt: Autonomous driving scene with object detection bounding boxes highlighting pedestrians and cars
 description: |
-  Novel framework integrating OOD detection into DINO self-supervised pretraining via a dynamic memory buffer — improving rare-object precision and recall on long-tailed autonomous driving datasets.
+  Novel framework integrating OOD detection into DINO self-supervised pretraining via a dynamic memory buffer — +28% precision over random baseline on long-tailed autonomous driving data.
+metric: "+28% precision · BDD10K · NYU capstone"
+github: "https://github.com/Lake-Wang/OOD_Enhanced_Dino_Vision"
 tags:
   - Computer Vision
   - Deep Learning

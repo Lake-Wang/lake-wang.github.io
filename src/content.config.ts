@@ -14,6 +14,8 @@ export const collections = {
 			img: z.string(),
 			img_alt: z.string().optional(),
 			type: z.enum(['experience', 'project']).default('project'),
+			metric: z.string().optional(),
+			github: z.string().optional(),
 		}),
 	}),
 };
