@@ -169,6 +169,7 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 						<p class="edu-note">Reinforcement Learning · Database · Machine Learning · Econometrics</p>
 					</div>
 				</div>
+				<a href="/work/#academic-projects" class="edu-projects-link">See Academic Projects →</a>
 			</section>
 			<section class="about-invite">
 				<p class="invite-line">There's more to the story than the work history.</p>
@@ -294,6 +295,16 @@ const experience = allWork.filter((e) => e.data.type === 'experience');
 	}
 
 	/* ====================================================== */
+
+	.edu-projects-link {
+		font-size: var(--text-sm);
+		color: var(--accent-regular);
+		text-decoration: none;
+		margin-top: 0.5rem;
+		display: inline-block;
+	}
+
+	.edu-projects-link:hover { color: var(--accent-dark); }
 
 	.about-invite {
 		display: flex;

@@ -5,7 +5,7 @@ img: /assets/nba-thumbnail.png
 img_alt: NBA championship trophy surrounded by team logos on a basketball court
 description: |
   Two-stage PyTorch pipeline predicting NBA game attendance from game intensity and weather signals — with Airflow orchestration, MLflow tracking, and FastAPI/Triton serving on Chameleon Cloud.
-metric: "Airflow · MLflow · FastAPI/Triton · NYU capstone"
+metric: "Full MLOps lifecycle: data pipeline → training → serving → drift monitoring"
 github: "https://github.com/Lake-Wang/MLops_System_NBA_Attendance"
 tags:
   - MLOps
