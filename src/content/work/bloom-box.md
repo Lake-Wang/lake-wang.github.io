@@ -4,8 +4,8 @@ publishDate: 2025-10-01 00:00:00
 img: /assets/xpertdox-thumbnail.png
 img_alt: Medical coder reviewing ICD-10, CPT, and HCPCS codes on dual monitors
 description: |
-  Full-stack ML ownership for automated medical coding — production models serving a large distributed clinical fleet, with direct accountability for accuracy, reliability, and business impact.
-metric: "Clinical NLP · full ML lifecycle · distributed production fleet"
+  Full-stack ML ownership and technical leadership for automated medical coding — from production model architecture to project management, team development, and business stakeholder alignment.
+metric: "Clinical NLP · ML lead · project management & team development"
 tags:
   - Clinical NLP
   - Production ML
@@ -40,3 +40,13 @@ Production ownership extends well beyond training and deploying models:
 - Regular review of model outputs alongside human coding experts
 - Direct interrogation of production data to surface patterns automated monitoring misses
 - Continuous performance monitoring and retraining to handle coding guideline updates and distribution shift
+
+## Project and Team Ownership
+
+The role has grown substantially beyond individual technical contribution into project management and team leadership.
+
+**Project delivery** — I own project timelines end-to-end: setting expectations with management, coordinating resource needs across departments, and presenting honest assessments of feasibility and schedule. This means translating between engineering constraints and business priorities in both directions — advocating for what the team needs while being clear with leadership about what's achievable and when.
+
+**Team development** — As the organization has grown, I've taken on responsibility for the data science team beyond my own work. HR consults my input during recruiting. I onboard and mentor incoming data scientists, assign projects that develop their capabilities, and relay feedback between management and the team — giving people the context they need to meet expectations and grow.
+
+**Stakeholder balance** — Managing competing pressures from the development side and the business side, for my own work and the team's. That includes knowing when to absorb tradeoffs, when to push back, and when to bring management in explicitly — before friction becomes a delivery problem.
